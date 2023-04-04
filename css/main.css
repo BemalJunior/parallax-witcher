@@ -1,0 +1,49 @@
+/* Сбрасываем дефолтные параметры стилей */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #000;
+}
+
+:root {
+  --transition: 1.75s cubic-bezier(0.020, 0.600, 0.000, 1.000);
+}
+
+.slider {
+  height: 100%;
+}
+
+.slider__layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  /* transition: var(--transition) !important; */
+  will-change: transform;
+  /* inset: 0; тоже самое что и по отдельности прикреплять через top0 right0 bottom0 left0 */
+}
+
+.slider__layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  box-shadow: inset 0 0 250px rgb(0 0 0 / .3);
+}
+
+.slider__item {
+  overflow: hidden;
+}
+
+.slider__wrapper {
+  /* transition: var(--transition) !important; */
+  will-change: transform;
+  transform-style: preserve-3d;
+}
